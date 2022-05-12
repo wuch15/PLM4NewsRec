@@ -74,6 +74,7 @@ def train(args):
 
     tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
     config = AutoConfig.from_pretrained("bert-base-uncased", output_hidden_states=True)
+    config.num_hidden_layers = 8
     bert_model = AutoModel.from_pretrained("bert-base-uncased",config=config)
     
     #bert_model.load_state_dict(torch.load('../bert_encoder_part.pkl'))
